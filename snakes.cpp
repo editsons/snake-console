@@ -1,5 +1,3 @@
-// start: 22:25
-
 #include <windows.h>
 #include <bits/stdc++.h>
 using namespace std;
@@ -144,7 +142,7 @@ int main() {
 			}
 			food_eaten = false;
 
-			// check for death and food
+			// check for death
 			for(int i = 0; i < snake.size() - 1; i++) {
 				// biting itself
 				if(snake.back().first == snake[i].first && snake.back().second == snake[i].second) {
@@ -162,12 +160,12 @@ int main() {
 					score += 4;
 				}
 			}
-
-			// update direction
-			direction = direction_desired;
-
+			
 			// pause
 			this_thread::sleep_for(chrono::milliseconds(grid_sleep_ms));
+			
+			// update direction
+			direction = direction_desired;
 
 			// remove tail
 			if(!food_eaten) {
